@@ -10,7 +10,7 @@ import Foundation
 typealias Id = String
 typealias Email = String
 
-struct User: Codable{
+public struct User: Codable{
 	let id :Id
 	let name :String
 	let email :Email

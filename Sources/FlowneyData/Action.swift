@@ -30,7 +30,7 @@ public struct Action: Codable{
 	let sender: User
 	let receiver: User
 	let date: Date
-	let concept: String
+	public let concept: String
 	let amount: Float
 	let currency: Currency = .Euro
 	let status: Status
