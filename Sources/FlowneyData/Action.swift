@@ -13,7 +13,7 @@ enum Currency: Int, Codable {
 }
 
 
-struct Action: Codable{
+public struct Action: Codable{
 	
 	
 	enum Status: String, Codable {
