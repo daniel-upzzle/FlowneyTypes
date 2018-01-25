@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum Currency: Int, Codable {
+public enum Currency: Int, Codable {
 	case Euro
 }
 
@@ -16,7 +16,7 @@ enum Currency: Int, Codable {
 public struct Action: Codable{
 	
 	
-	enum Status: String, Codable {
+	public enum Status: String, Codable {
 		case CreatedBySender
 		case CreatedByReceiver
 		case Accepted
@@ -26,26 +26,26 @@ public struct Action: Codable{
 		case Unknown
 	}
 	
-	let id: Int?
-	let sender: User
-	let receiver: User
-	let date: Date
+	public let id: Int?
+	public let sender: User
+	public let receiver: User
+	public let date: Date
 	public let concept: String
-	let amount: Float
-	let currency: Currency = .Euro
-	let status: Status
-	let counterPart: Id? = nil
+	public let amount: Float
+	public let currency: Currency = .Euro
+	public let status: Status
+	public let counterPart: Id? = nil
 
-	var isCompensation: Bool{
+	public var isCompensation: Bool{
 		return counterPart != nil
 	}
 	
-	var isSaved: Bool{
+	public var isSaved: Bool{
 		return id != nil
 	}
 	
 	
-	func wichOther(me: User) -> User? {
+	public func wichOther(me: User) -> User? {
 		
 		if self.sender.id == me.id {
 			return self.receiver

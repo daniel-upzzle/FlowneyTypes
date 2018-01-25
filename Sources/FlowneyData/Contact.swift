@@ -8,12 +8,12 @@
 import Foundation
 
 
-struct Contact : Codable {
+public struct Contact : Codable {
 	
-	let id :Int?
-	let name :String
-	let email :String
-	let userId :String
-	let contactId :String
+	public let id :Int?
+	public let name :String
+	public let email :String
+	public let userId :String
+	public let contactId :String
 	
 }

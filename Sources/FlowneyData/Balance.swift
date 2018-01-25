@@ -8,7 +8,7 @@
 import Foundation
 
 
-enum BalanceStatus : Codable {
+public enum BalanceStatus : Codable {
 	
 	case IOwe(amount: Float)
 	case OweMe(amount: Float)
@@ -50,7 +50,7 @@ enum BalanceStatus : Codable {
 		
 	}
 	
-	var absAmount: Float {
+	public var absAmount: Float {
 		switch self {
 		case .IOwe(let amount):
 			return amount
@@ -63,7 +63,7 @@ enum BalanceStatus : Codable {
 }
 
 
-func +(a :BalanceStatus, b :BalanceStatus) -> BalanceStatus {
+public func +(a :BalanceStatus, b :BalanceStatus) -> BalanceStatus {
 	
 	switch (a,b) {
 		
@@ -107,18 +107,18 @@ func +(a :BalanceStatus, b :BalanceStatus) -> BalanceStatus {
 
 
 
-struct UsersBalance: Codable{
+public struct UsersBalance: Codable{
 	
 	//let me : User
-	let with : User
-	let status : BalanceStatus
+	public let with : User
+	public let status : BalanceStatus
 
 }
 
 
 extension UsersBalance{
 	
-	func adding(status addingStatus: BalanceStatus) -> UsersBalance {
+	public func adding(status addingStatus: BalanceStatus) -> UsersBalance {
 		//return UsersBalance(me: me, other: other, status: status + addingStatus )
 		return UsersBalance(with: with, status: status + addingStatus )
 	}
@@ -126,18 +126,18 @@ extension UsersBalance{
 
 
 
-struct GlobalBalance : Codable {
+public struct GlobalBalance : Codable {
 	
-	let status : BalanceStatus
-	let iOwe : BalanceStatus
-	let oweMe : BalanceStatus
+	public let status : BalanceStatus
+	public let iOwe : BalanceStatus
+	public let oweMe : BalanceStatus
 	//let user : User
 	
-	static var zero : GlobalBalance {
+	public static var zero : GlobalBalance {
 		return GlobalBalance(status: .Zero, iOwe: .Zero, oweMe: .Zero) //, user: user)
 	}
 	
-	func adding(balance : BalanceStatus) -> GlobalBalance {
+	public func adding(balance : BalanceStatus) -> GlobalBalance {
 		
 		let newStatus = status + balance
 		let newIOwe : BalanceStatus
@@ -159,8 +159,8 @@ struct GlobalBalance : Codable {
 	}
 }
 
-struct BalanceResponse : Codable {
+public struct BalanceResponse : Codable {
 	
-	let global : GlobalBalance
-	let users : [UsersBalance]
+	public let global : GlobalBalance
+	public let users : [UsersBalance]
 }

@@ -11,9 +11,9 @@ typealias Id = String
 typealias Email = String
 
 public struct User: Codable{
-	let id :Id
-	let name :String
-	let email :Email
+	public let id :Id
+	public let name :String
+	public let email :Email
 }
 
 
