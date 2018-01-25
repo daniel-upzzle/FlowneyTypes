@@ -7,8 +7,8 @@
 
 import Foundation
 
-typealias Id = String
-typealias Email = String
+public typealias Id = String
+public typealias Email = String
 
 public struct User: Codable{
 	public let id :Id
